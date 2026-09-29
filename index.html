@@ -957,6 +957,96 @@
   @media (prefers-reduced-motion:reduce){
     .top-banner-img{ animation:none !important; }
   }
+
+  /* ============================================================
+     MODERN REFRESH — softer surfaces, rounded cards, gradient accents
+     ============================================================ */
+  :root{
+    --border:        rgba(233,231,221,.12);
+    --border-soft:   rgba(233,231,221,.07);
+    --surface:       rgba(255,255,255,.035);
+    --surface-hi:    rgba(255,255,255,.06);
+    --accent-2:      #7C9CFF;
+    --grad:          linear-gradient(120deg,#45B39D 0%,#7C9CFF 100%);
+    --radius:        16px;
+  }
+  body{
+    background-image:
+      radial-gradient(60rem 32rem at 12% -4%, rgba(69,179,157,.14), transparent 60%),
+      radial-gradient(48rem 30rem at 95% 18%, rgba(124,156,255,.09), transparent 60%),
+      linear-gradient(180deg,#0B0F0E 0%,#0D1211 100%);
+    background-attachment:fixed;
+  }
+  h1,h2,h3{ font-family:var(--sans); font-weight:700; letter-spacing:-.025em; }
+  .eyebrow::before{ border-radius:50%; background:var(--grad); }
+
+  header.site{
+    background:rgba(11,15,14,.6);
+    backdrop-filter:saturate(160%) blur(16px);
+    -webkit-backdrop-filter:saturate(160%) blur(16px);
+  }
+  nav.primary a::after{ background:var(--grad); height:2px; border-radius:2px; }
+
+  .hero{ padding:112px 0 96px; }
+  .hero h1{ font-size:clamp(38px,6vw,68px); line-height:1.02; letter-spacing:-.035em; }
+  .hero h1 .accent{
+    background:var(--grad); -webkit-background-clip:text; background-clip:text;
+    color:transparent; -webkit-text-fill-color:transparent;
+  }
+  .hero .role{ font-size:20px; max-width:620px; }
+  .term{
+    border-radius:var(--radius); background:rgba(19,26,24,.7);
+    backdrop-filter:blur(10px); overflow:hidden;
+  }
+  .term-bar{ border-radius:0; }
+  .term-dot:nth-child(1){ background:#E5645A; }
+  .term-dot:nth-child(2){ background:#E6B450; }
+  .term-dot:nth-child(3){ background:#5CC46E; }
+
+  .btn{ border-radius:999px; padding:14px 26px; font-weight:500; }
+  .btn-primary{ background:var(--grad); color:#08110F; box-shadow:0 8px 24px -8px rgba(69,179,157,.6); }
+  .btn-primary:hover{ background:var(--grad); filter:brightness(1.1); box-shadow:0 12px 30px -8px rgba(69,179,157,.7); }
+  .btn-outline{ background:var(--surface); }
+
+  .hero-meta{ gap:12px; background:none; border:none; max-width:760px; }
+  .hero-meta div{
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:16px 18px;
+  }
+
+  section{ border-bottom:none; }
+  .section-head h2{ font-size:clamp(26px,3.4vw,36px); }
+
+  .summary-callout, .contact-panel, .cube-panel{ border-radius:var(--radius); }
+  .summary-callout{ border-left:1px solid var(--border); position:relative; overflow:hidden; }
+  .summary-callout::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--grad); }
+  .findings{ border-radius:var(--radius); overflow:hidden; background:var(--surface); }
+  .finding{ border-bottom-color:var(--border-soft); }
+  .cert{ border-radius:12px; background:var(--surface); }
+
+  /* projects: two-column card grid */
+  .log{
+    display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px;
+  }
+  .log-entry{
+    display:flex; flex-direction:column;
+    border-radius:var(--radius); padding:28px;
+    background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+    backdrop-filter:blur(6px);
+    transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+  }
+  .log-entry:hover{
+    border-color:var(--accent-line); transform:translateY(-4px);
+    box-shadow:0 24px 48px -24px rgba(69,179,157,.35);
+  }
+  .log-entry p{ flex:1; max-width:none; }
+  .log-entry h3{ font-size:20px; }
+  .log-status{ border-radius:999px; padding:4px 11px; }
+  .tag{ border-radius:999px; background:var(--surface); }
+  .project-impact{ border-radius:999px; background:var(--surface); align-self:flex-start; }
+  .log-links{ margin-top:auto; padding-top:16px; border-top:1px solid var(--border-soft); }
+  .log-entry.new .log-status{ color:#08110F; background:var(--grad); font-weight:600; }
+  @media (max-width:860px){ .log{ grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -1185,6 +1275,42 @@
           </div>
           <div class="log-links">
             <a href="mailto:siavashtnejad@gmail.com?subject=Portfolio%20inquiry%3A%20Blockchain%20Transaction%20Tracker">Request a demo</a>
+            <a href="https://github.com/siavashtnejad-ux" target="_blank" rel="noopener">Browse GitHub</a>
+          </div>
+        </article>
+        <article class="log-entry new reveal">
+          <div class="log-head">
+            <span class="log-id mono">PROJ-2026-007</span>
+            <span class="log-status">Web App</span>
+          </div>
+          <h3>QR Code Attendance Checking System</h3>
+          <p>Built an attendance system where each session generates a unique QR code that attendees scan to check in. Records are stored with timestamps so organizers can review who attended without manual roll calls or paper sheets.</p>
+          <div class="project-impact"><span>Outcome</span>Scan-to-check-in attendance</div>
+          <div class="tags">
+            <span class="tag">[Web]</span>
+            <span class="tag">[QR Code]</span>
+            <span class="tag">[Attendance Tracking]</span>
+          </div>
+          <div class="log-links">
+            <a href="mailto:siavashtnejad@gmail.com?subject=Portfolio%20inquiry%3A%20QR%20Code%20Attendance%20Checking%20System">Request a demo</a>
+            <a href="https://github.com/siavashtnejad-ux" target="_blank" rel="noopener">Browse GitHub</a>
+          </div>
+        </article>
+        <article class="log-entry new reveal">
+          <div class="log-head">
+            <span class="log-id mono">PROJ-2026-008</span>
+            <span class="log-status">E-Commerce</span>
+          </div>
+          <h3>Interactive Online Toy Store</h3>
+          <p>Designed and built an online toy store with an interactive, playful storefront: browsable product catalog, product detail views, and a shopping cart experience aimed at making shopping fun for kids and parents.</p>
+          <div class="project-impact"><span>Outcome</span>Interactive shopping experience</div>
+          <div class="tags">
+            <span class="tag">[Web]</span>
+            <span class="tag">[E-Commerce]</span>
+            <span class="tag">[Interactive UI]</span>
+          </div>
+          <div class="log-links">
+            <a href="mailto:siavashtnejad@gmail.com?subject=Portfolio%20inquiry%3A%20Interactive%20Online%20Toy%20Store">Request a demo</a>
             <a href="https://github.com/siavashtnejad-ux" target="_blank" rel="noopener">Browse GitHub</a>
           </div>
         </article>
